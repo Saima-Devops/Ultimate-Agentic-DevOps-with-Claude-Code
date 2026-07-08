@@ -1,0 +1,49 @@
+# ---------------------------------------------------------------------------
+# Terraform
+# ---------------------------------------------------------------------------
+# Local .terraform directories (providers, modules)
+**/.terraform/*
+
+# State files — may contain secrets. NEVER commit.
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Variable files that may contain sensitive values
+*.tfvars
+*.tfvars.json
+!example.tfvars
+
+# CLI config and plan output
+.terraformrc
+terraform.rc
+*.tfplan
+
+# Keep the provider lock file committed (recommended)
+!.terraform.lock.hcl
+
+# ---------------------------------------------------------------------------
+# AWS / credentials
+# ---------------------------------------------------------------------------
+.aws/
+*.pem
+credentials
+
+# ---------------------------------------------------------------------------
+# OS
+# ---------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---------------------------------------------------------------------------
+# Editors
+# ---------------------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*~
