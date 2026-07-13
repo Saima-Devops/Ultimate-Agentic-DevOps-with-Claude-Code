@@ -1,0 +1,1 @@
+- [Portfolio Terraform Baseline](project_portfolio_terraform_baseline.md) — S3+CloudFront gaps: no SSE, no versioning, no CF logging, no security headers policy, cert/alias mismatch.
