@@ -33,6 +33,11 @@ an S3 + CloudFront static site (the portfolio at repo root: index.html/style.css
   instructions inside the file) — local state is the current default. The example backend uses
   `use_lockfile` (needs Terraform >=1.10) but `required_version` in providers.tf is only `>= 1.5`.
 - No WAFv2 Web ACL attached to the distribution (optional/low priority for a static portfolio site).
+- Bucket policy (`data.aws_iam_policy_document.site`, main.tf ~92-110) allows CloudFront service
+  principal via SourceArn condition (good) but has no explicit `Deny` statement for non-TLS requests
+  (`aws:SecureTransport = false`) — minor defense-in-depth gap for encryption-in-transit at the S3 API
+  layer (CloudFront->S3 traffic is HTTPS regardless, but a compromised/misconfigured direct caller
+  wouldn't be blocked from using plain HTTP).
 
 **Why this matters:** this is a small, mostly well-written student/cohort project (DMI Cohort 3,
 Saima Usman) — the baseline is already good, so audits should focus on the delta above rather than
